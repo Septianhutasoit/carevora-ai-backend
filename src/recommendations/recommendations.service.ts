@@ -3,7 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { AiService } from '../ai/ai.service';
 
 // Definisikan tipe data hasil analisis secara jelas
-interface DetailedResult {
+ export interface DetailedResult {
   careerId: string;
   careerTitle: string;
   score: number;
