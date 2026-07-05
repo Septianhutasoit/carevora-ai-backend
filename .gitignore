@@ -1,0 +1,68 @@
+# ==========================================
+# 1. COMPILED & RUNTIME OUTPUT (BUN/NESTJS)
+# ==========================================
+/dist
+/node_modules
+/build
+.temp
+.tmp
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ==========================================
+# 2. DOTENV ENVIRONMENT VARIABLES (SENSITIF)
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example # Izinkan file template jika ada nanti
+
+# ==========================================
+# 3. PRISMA ORM DEFINITIONS
+# ==========================================
+/generated/prisma
+# Jangan ignore folder migrations agar skema DB di Git tetap sync
+# !prisma/migrations/
+
+# ==========================================
+# 4. LOGS & DIAGNOSTICS
+# ==========================================
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ==========================================
+# 5. TESTING & COVERAGE
+# ==========================================
+/coverage
+/.nyc_output
+
+# ==========================================
+# 6. IDEs & EDITORS CONFIG
+# ==========================================
+.DS_Store
+Thumbs.db
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VSCode settings (Optional, sesuaikan jika ingin menyimpan launch config)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
