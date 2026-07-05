@@ -22,12 +22,13 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const payload = await this.jwtService.verifyAsync(token, {
+      const payload = await this.jwtService.verifyAsync<{
+        sub: string;
+        email: string;
+      }>(token, {
         secret: process.env.JWT_SECRET || 'ganti_dengan_kode_rahasia_opsional',
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       request['user'] = payload;
     } catch {
       throw new UnauthorizedException(

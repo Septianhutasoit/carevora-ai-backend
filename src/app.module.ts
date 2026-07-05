@@ -11,14 +11,14 @@ import { RecommendationsModule } from './recommendations/recommendations.module'
 
 @Module({
   imports: [
-    PrismaModule,           // Mendaftarkan database Prisma secara global
-    AuthModule,             // Mendaftarkan modul login/register
-    UsersModule,            // Mendaftarkan modul profil dan skill user
-    SkillsModule,           // Mendaftarkan modul master data skill
-    CareersModule,          // Mendaftarkan modul master data karier
-    RecommendationsModule,  // Mendaftarkan modul kalkulasi kecocokan
+    PrismaModule, // Mendaftarkan database Prisma secara global
+    AuthModule, // Mendaftarkan modul login/register
+    UsersModule, // Mendaftarkan modul profil dan skill user
+    SkillsModule, // Mendaftarkan modul master data skill
+    CareersModule, // Mendaftarkan modul master data karier
+    RecommendationsModule, // Mendaftarkan modul kalkulasi kecocokan
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

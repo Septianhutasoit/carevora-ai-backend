@@ -3,7 +3,7 @@ import { CareersService } from './careers.service';
 import { CareersController } from './careers.controller';
 
 @Module({
-    controllers: [CareersController],
-    providers: [CareersService],
+  controllers: [CareersController],
+  providers: [CareersService],
 })
-export class CareersModule { } // Mengekspor kelas CareersModule secara resmi
+export class CareersModule {} // Mengekspor kelas CareersModule secara resmi

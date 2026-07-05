@@ -3,18 +3,18 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class CareersService {
-    constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
-    // Mengambil daftar semua karier beserta daftar skill pendukungnya
-    async findAll() {
-        return this.prisma.career.findMany({
-            include: {
-                skills: {
-                    include: {
-                        skill: true,
-                    },
-                },
-            },
-        });
-    }
+  // Mengambil daftar semua karier beserta daftar skill pendukungnya
+  async findAll() {
+    return this.prisma.career.findMany({
+      include: {
+        skills: {
+          include: {
+            skill: true,
+          },
+        },
+      },
+    });
+  }
 }
