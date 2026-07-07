@@ -12,12 +12,13 @@ import { UploadsModule } from './uploads/uploads.module';
 
 @Module({
   imports: [
-    PrismaModule, // Mendaftarkan database Prisma secara global
-    AuthModule, // Mendaftarkan modul login/register
-    UsersModule, // Mendaftarkan modul profil dan skill user
-    SkillsModule, // Mendaftarkan modul master data skill
-    CareersModule, // Mendaftarkan modul master data karier
-    RecommendationsModule, UploadsModule, // Mendaftarkan modul kalkulasi kecocokan
+    PrismaModule,
+    AuthModule,
+    UsersModule,
+    SkillsModule,
+    CareersModule,
+    RecommendationsModule,
+    UploadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

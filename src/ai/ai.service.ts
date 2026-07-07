@@ -27,7 +27,8 @@ export class AiService {
         },
       );
       return response.data;
-    } catch (error) {
+    } catch {
+      // Cukup tulis catch saja tanpa variabel jika tidak digunakan
       throw new HttpException(
         'AI Service (FastAPI) sedang offline, silakan nyalakan service Python Anda.',
         HttpStatus.FAILED_DEPENDENCY,
