@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { SkillsModule } from './skills/skills.module';
 import { CareersModule } from './careers/careers.module';
 import { RecommendationsModule } from './recommendations/recommendations.module';
+import { UploadsModule } from './uploads/uploads.module';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { RecommendationsModule } from './recommendations/recommendations.module'
     UsersModule, // Mendaftarkan modul profil dan skill user
     SkillsModule, // Mendaftarkan modul master data skill
     CareersModule, // Mendaftarkan modul master data karier
-    RecommendationsModule, // Mendaftarkan modul kalkulasi kecocokan
+    RecommendationsModule, UploadsModule, // Mendaftarkan modul kalkulasi kecocokan
   ],
   controllers: [AppController],
   providers: [AppService],
