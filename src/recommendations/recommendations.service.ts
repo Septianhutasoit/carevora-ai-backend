@@ -18,7 +18,7 @@ export class RecommendationsService {
     private aiService: AiService,
   ) {}
 
-  // 1. FUNGSI UTAMA KALKULASI AI (Kurung kurawal dibuka di sini)
+  // 1. FUNGSI UTAMA KALKULASI AI
   async getRecommendations(userId: string): Promise<DetailedResult[]> {
     const userSkillsRelation = await this.prisma.userSkill.findMany({
       where: { userId },
@@ -83,9 +83,9 @@ export class RecommendationsService {
     }
 
     return detailedResults;
-  } // <--- KURUNG KURAWAL PENUTUP getRecommendations ADALAH DI SINI
+  } 
 
-  // 2. FUNGSI RIWAYAT/HISTORY (Sekarang sudah sejajar dengan benar di tingkat class)
+  // 2. FUNGSI RIWAYAT/HISTORY 
   async getHistory(userId: string) {
     return this.prisma.recommendation.findMany({
       where: { userId },
