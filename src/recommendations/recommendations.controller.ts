@@ -16,8 +16,16 @@ export class RecommendationsController {
     private readonly recommendationsService: RecommendationsService,
   ) {}
 
+// jalankan ulang kalkulasi AI baru
   @Get()
   async getRecommendations(@Req() req: RequestWithUser) {
     return this.recommendationsService.getRecommendations(req.user.sub);
   }
+
+// Mengambil riwayat hasil analisis terakhir dari neon
+@Get('history')
+async getHistory(@Req() req: RequestWithUser) {
+  return this.recommendationsService.getHistory(req.user.sub);
+}
+
 }

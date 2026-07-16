@@ -1,8 +1,8 @@
+// src/recommendations/recommendations.service.ts
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { AiService } from '../ai/ai.service';
 
-// Definisikan tipe data hasil analisis secara jelas
 export interface DetailedResult {
   careerId: string;
   careerTitle: string;
@@ -18,6 +18,7 @@ export class RecommendationsService {
     private aiService: AiService,
   ) {}
 
+  // 1. FUNGSI UTAMA KALKULASI AI (Kurung kurawal dibuka di sini)
   async getRecommendations(userId: string): Promise<DetailedResult[]> {
     const userSkillsRelation = await this.prisma.userSkill.findMany({
       where: { userId },
@@ -49,7 +50,6 @@ export class RecommendationsService {
       careersPayload,
     );
 
-    // TypeScript kini tahu bahwa detailedResults adalah array dari DetailedResult
     const detailedResults: DetailedResult[] = aiScores.map((scoreObj) => {
       const career = allCareers.find((c) => c.id === scoreObj.id)!;
       const careerSkills = career.skills.map((cs) => cs.skill.name);
@@ -83,5 +83,22 @@ export class RecommendationsService {
     }
 
     return detailedResults;
+  } // <--- KURUNG KURAWAL PENUTUP getRecommendations ADALAH DI SINI
+
+  // 2. FUNGSI RIWAYAT/HISTORY (Sekarang sudah sejajar dengan benar di tingkat class)
+  async getHistory(userId: string) {
+    return this.prisma.recommendation.findMany({
+      where: { userId },
+      include: {
+        career: {
+          select: {
+            title: true, // Ambil nama karier
+          },
+        },
+      },
+      orderBy: {
+        score: 'desc', // Urutkan persentase dari tertinggi ke terendah
+      },
+    });
   }
 }
